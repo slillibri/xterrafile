@@ -18,7 +18,7 @@
 node_modules/
 
 # Terrafile output
-vendor/modules
+vendor
 /xterrafile
 test/tmp/
 
