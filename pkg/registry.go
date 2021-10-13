@@ -24,7 +24,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/hashicorp/terraform-svchost/disco"
+	"github.com/hashicorp/terraform/svchost/disco"
 	"github.com/hashicorp/terraform/registry"
 	"github.com/hashicorp/terraform/registry/regsrc"
 
