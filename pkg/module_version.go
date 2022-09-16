@@ -28,7 +28,7 @@ import (
 )
 
 type semverMap struct {
-	semver semver.Version
+	semver   semver.Version
 	original string
 }
 

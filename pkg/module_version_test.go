@@ -22,7 +22,7 @@ func TestGetModuleVersion(t *testing.T) {
 	var version string
 	var err error
 
-	version, _ = getModuleVersion([]string{"v2.9.0","v2.10.0","v2.65.0","v2.66.0"}, "2.66.0") // https://github.com/devopsmakers/xterrafile/issues/30
+	version, _ = getModuleVersion([]string{"v2.9.0", "v2.10.0", "v2.65.0", "v2.66.0"}, "2.66.0") // https://github.com/devopsmakers/xterrafile/issues/30
 	assert.Equal(t, "v2.66.0", version, "version should be v2.66.0")
 
 	version, _ = getModuleVersion([]string{"1.1.1", "2.1.1", "2.0.1"}, "1.1.1")
