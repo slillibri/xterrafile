@@ -14,7 +14,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.14.x
+          go-version: 1.19.x
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Vendor modules
@@ -31,7 +31,7 @@ jobs:
         if: success()
         uses: actions/setup-go@v2
         with:
-          go-version: 1.14.x
+          go-version: 1.19.x
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Vendor modules
@@ -46,7 +46,7 @@ jobs:
         if: success()
         uses: actions/setup-go@v2
         with:
-          go-version: 1.14.x
+          go-version: 1.19.x
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Vendor modules
@@ -63,7 +63,7 @@ jobs:
         if: success()
         uses: actions/setup-go@v2
         with:
-          go-version: 1.14.x
+          go-version: 1.19.x
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Vendor modules
