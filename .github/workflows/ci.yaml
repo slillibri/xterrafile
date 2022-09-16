@@ -22,7 +22,7 @@ jobs:
       - name: Run linters
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.35.2
+          version: v3.2.0
 
   vet:
     runs-on: ubuntu-latest

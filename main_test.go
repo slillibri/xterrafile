@@ -34,14 +34,11 @@ func TestTerraformWithTerrafilePath(t *testing.T) {
 	// Assert output
 	for _, output := range []string{
 		"Removing all modules in vendor/modules",
-		"[terrafile-test-local] Copying from ./test/module",
-		"[terrafile-test-path] Fetching git::https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git?ref=v0.1.7",
-		"[terrafile-test-commit] Fetching git::https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git?ref=2e6b9729f3f6ea3ef5190bac0b0e1544a01fd80f",
-		"[terrafile-test-https] Fetching git::https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git",
-		"[terrafile-test-branch] Fetching git::ssh://git@github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git?ref=branch_test",
-		"[terrafile-test-tag] Fetching git::ssh://git@github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git?ref=v0.1.7",
-		"[terrafile-test-registry] Found module version 0.1.7 at registry.terraform.io",
-		"[terrafile-test-registry] Fetching git::https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet?ref=v0.1.7",
+		"[terrafile-test-tag] Fetching git::https://github.com/terraform-aws-modules/terraform-aws-eks.git?ref=v18.29.0",
+		"[terrafile-test-https] Fetching git::https://github.com/terraform-aws-modules/terraform-aws-eks.git",
+		"[terrafile-test-registry] Found module version 18.29.0 at registry.terraform.io",
+		"[terrafile-test-registry] Downloading from source URL git::https://github.com/terraform-aws-modules/terraform-aws-eks?ref=v18.29.0",
+		"[terrafile-test-registry] Fetching git::https://github.com/terraform-aws-modules/terraform-aws-eks?ref=v18.29.0",
 	} {
 		assert.Contains(t, testcli.Stdout(), output)
 	}
@@ -50,10 +47,6 @@ func TestTerraformWithTerrafilePath(t *testing.T) {
 		"terrafile-test-registry",
 		"terrafile-test-https",
 		"terrafile-test-tag",
-		"terrafile-test-branch",
-		"terrafile-test-commit",
-		"terrafile-test-path",
-		"terrafile-test-local",
 	} {
 		assert.DirExists(t, path.Join(workingDirectory, "vendor/modules", moduleName))
 	}
@@ -74,25 +67,13 @@ func createFile(t *testing.T, filename string, contents string) {
 
 func createTerrafile(t *testing.T, folder string) {
 	var yaml = `terrafile-test-registry:
-  source: "terraform-digitalocean-modules/droplet/digitalocean"
-  version: "0.1.7"
+  source: "terraform-aws-modules/eks/aws"
+  version: "18.29.x"
 terrafile-test-https:
-  source: "https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git"
+  source: "https://github.com/terraform-aws-modules/terraform-aws-eks.git"
 terrafile-test-tag:
-  source: "git@github.com:terraform-digitalocean-modules/terraform-digitalocean-droplet.git"
-  version: "v0.1.7"
-terrafile-test-branch:
-  source: "git@github.com:terraform-digitalocean-modules/terraform-digitalocean-droplet.git"
-  version: "branch_test"
-terrafile-test-commit:
-  source: "https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git"
-  version: "2e6b9729f3f6ea3ef5190bac0b0e1544a01fd80f"
-terrafile-test-path:
-  source: "https://github.com/terraform-digitalocean-modules/terraform-digitalocean-droplet.git"
-  version: "v0.1.7"
-  path: "examples/simple"
-terrafile-test-local:
-  source: "./test/module"
+  source: "https://github.com/terraform-aws-modules/terraform-aws-eks.git"
+  version: "v18.29.0"
 `
 	createFile(t, path.Join(folder, "Terrafile.test"), yaml)
 }
