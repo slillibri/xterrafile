@@ -8,22 +8,22 @@ env:
   GO111MODULE: on
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.19.x
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Vendor modules
-        run: go mod vendor
-      - name: Run linters
-        uses: golangci/golangci-lint-action@v3
-        with:
-          version: v3.2.0
-          skip-cache: true
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Install Go
+#        uses: actions/setup-go@v3
+#        with:
+#          go-version: 1.19.x
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#      - name: Vendor modules
+#        run: go mod vendor
+#      - name: Run linters
+#        uses: golangci/golangci-lint-action@v3
+#        with:
+#          version: v3.2.0
+#          skip-cache: true
 
 #  vet:
 #    runs-on: ubuntu-latest
@@ -40,22 +40,22 @@ jobs:
 #      - name: Run vet
 #        run: go vet ./...
 #
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Install Go
-#        if: success()
-#        uses: actions/setup-go@v2
-#        with:
-#          go-version: 1.19.x
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#      - name: Vendor modules
-#        run: go mod vendor
-#      - name: Build binary
-#        run: go build -o xterrafile main.go
-#      - name: Run tests
-#        run: go test -v -covermode=count ./...
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        if: success()
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.19.x
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Vendor modules
+        run: go mod vendor
+      - name: Build binary
+        run: go build -o xterrafile main.go
+      - name: Run tests
+        run: go test -v -covermode=count ./...
 #
 #  coverage:
 #    runs-on: ubuntu-latest
