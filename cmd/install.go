@@ -31,7 +31,7 @@ import (
 
 	getter "github.com/hashicorp/go-getter"
 
-	xt "github.com/devopsmakers/xterrafile/pkg"
+	xt "github.com/slillibri/xterrafile/pkg"
 )
 
 // installCmd represents the install command
