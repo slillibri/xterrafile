@@ -21,7 +21,7 @@
 package main
 
 import (
-	"github.com/devopsmakers/xterrafile/cmd"
+	"github.com/slillibri/xterrafile/cmd"
 )
 
 func main() {

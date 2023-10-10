@@ -55,7 +55,7 @@ func TestTerraformWithTerrafilePath(t *testing.T) {
 		"terrafile-test-path",
 		"terrafile-test-local",
 	} {
-		assert.DirExists(t, path.Join(workingDirectory, "vendor/modules", moduleName))
+		t.Logf("%s - %t\n", moduleName, assert.DirExists(t, path.Join(workingDirectory, "vendor/modules", moduleName)))
 	}
 }
 
